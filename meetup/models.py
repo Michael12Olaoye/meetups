@@ -10,7 +10,7 @@ class myUser(AbstractUser):
     image=models.ImageField(null=True)
     bio=models.TextField(null=True)
     dod=models.DateField(null=True)
-    # USERNAME_FIELD='email'
+    USERNAME_FIELD='email'
     REQUIRED_FIELDS = []
     # def __str__(self):
     #     return self.name
