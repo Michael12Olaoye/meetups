@@ -1,0 +1,33 @@
+{% extends  'meetup/main.html'%}
+{% block title%}Login  {%endblock%}
+{% block slider%} {%endblock%}
+{% block simple%} {%endblock%}
+{%block meetup%}
+
+
+
+<section class="containter my-5 ">
+  
+    <div class="row">
+
+        <div class="col-md-4 m-auto">
+              <h1>Delete meetup</h1>
+    <hr>
+    <p>Are you sure you want to delete {{meetup.title}} </p>
+
+    <form action="" method="POST">
+        {% csrf_token%}
+
+        <button class="btn btn-danger">Delelet</button>
+    </form>
+  
+
+  <a href="{% url 'user-meetups' request.user.id%}" class="btn btn-warning mt-3">Back</a>
+        </div>
+        
+    </div>
+
+</section>
+ 
+
+{%endblock%}

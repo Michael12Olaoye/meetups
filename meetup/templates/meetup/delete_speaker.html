@@ -1,0 +1,33 @@
+{% extends  'meetup/main.html'%}
+{% block title%}Login  {%endblock%}
+{% block slider%} {%endblock%}
+{% block simple%} {%endblock%}
+{%block meetup%}
+
+
+
+<section class="containter my-5 ">
+  
+    <div class="row">
+
+        <div class="col-md-4 m-auto">
+              <h1>Delete Speaker</h1>
+    <hr>
+    <p>Are you sure you want to delete {{speaker.name}} </p>
+
+    <form action="" method="POST">
+        {% csrf_token%}
+
+        <button class="btn btn-danger">Delelet</button>
+    </form>
+  
+
+
+        </div>
+        
+    </div>
+
+</section>
+ 
+
+{%endblock%}

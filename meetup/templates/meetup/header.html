@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg sticky-top border-bottom">
+  <div class="container py-2">
+    <a class="navbar-brand fs-4" href="{% url 'home'%}">Meet<span class="brand-dot">ly</span></a>
+        {% if request.user.is_authenticated %}
+          <span class="text-muted mx-2"> Welcome </span>
+          <span class="text-warning">{{request.user.username}}!</span>
+ <li class="nav-item"><a href="{% url 'user-profile' request.user.id %}"  class="btn btn-outline-dark rounded-pill px-2 mx-4"> <i class="bi bi-person-fill fs-5" aria-hidden="true"></i></a>  </li>
+          {% endif%}
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+      
+        <li class="nav-item"><a class="nav-link" href="/#events">Explore</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#how">How it works</a></li>
+            {% if request.user.is_authenticated %}
+       <li class="nav-item"><a class="nav-link" href="{%url 'meetup-create'%}">Create meetup</a></li>
+         <li class="nav-item"><a class="nav-link" href="{%url 'user-meetups' request.user.id%}">My meetup</a></li>
+   <form action="{% url 'logout'%}" method="POST" >
+        {% csrf_token %}
+      
+      <li class="nav-item"><button class="btn btn-outline-dark rounded-pill px-4"> Logout</button>  </li>
+ 
+     
+
+
+    </form>
+
+       {%else%}
+
+ <li class="nav-item"><a href="{% url 'login'%}" class="btn btn-outline-dark rounded-pill px-4">Sign in</a></li>
+  <li class="nav-item"><a href="{% url 'register'%}" class="btn btn-brand rounded-pill px-4">Get started</a></li>
+            {%endif%}
+      
+       
+       
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+{% extends  'meetup/main.html'%}
+{%block meetup%}
+
+<section id="events" class="py-5 mt-4">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p class="text-primary fw-semibold mb-1">DISCOVER</p>
+        <h2 class="section-title mb-1">Popular meetups</h2>
+        <p class="text-secondary mb-0">Events people are joining this week.</p>
+      </div>
+      <a href="#" class="text-decoration-none fw-semibold">View all <i class="bi bi-arrow-right"></i></a>
+    </div>
+
+    <div class="row g-4">
+        {% for meetup in meetups%}
+      <div class="col-md-6 col-lg-4">
+        <div class="event-card bg-white">
+          <img class="w-100 event-img" src="{{meetup.image.url}}" alt="People at a technology meetup">
+          <div class="p-4">
+            <!-- <span class="badge text-bg-light text-primary mb-3">Technology</span> -->
+            <h5 class="fw-bold">{{meetup.title}}</h5>
+            <p class="small text-secondary"><i class="bi bi-geo-alt me-1"></i> {{meetup.location_address |  truncatewords:8}}</p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="date-badge "><small class="mx-2">{{meetup.meetup_date}}</small></div>
+              <div><div class="fw-semibold">{{ meetup.meetup_time}}</div><div class="small text-secondary">{{meetup.participant.count}} 
+                {%if meetup.participant.count > 1%}
+                people 
+                {%else%}
+                person
+                {%endif%}
+                going</div></div>
+                  <a href="{% url 'meetup-details' meetup.slug%}" class="btn btn-brand rounded-pill px-3">Join meetup</a>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-4">
+              <!-- <div class="avatar-stack">
+                <img src="https://i.pravatar.cc/60?img=12"><img src="https://i.pravatar.cc/60?img=32"><img src="https://i.pravatar.cc/60?img=47">
+                <span class="small text-secondary ms-1">+21</span>
+              </div> -->
+            
+            </div>
+          </div>
+        </div>
+      </div>
+{%endfor%}
+      
+    </div>
+  </div>
+</section>
+
+{%endblock%}

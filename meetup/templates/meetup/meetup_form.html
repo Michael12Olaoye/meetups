@@ -1,0 +1,30 @@
+{% extends  'meetup/main.html'%}
+{% load crispy_forms_tags %}
+{%block title%}Meetup details{%endblock%}
+{%block slider%}{%endblock%}
+{%block meetup%}
+<div class="container">
+    <h1 class="my-3">{{meetup.title}}</h1>
+    <div class="row ">
+        <div class="col-md-8 m-auto">
+<h1>Create Event</h1>
+    <p>make sure that your event is activate for user to see it</p>
+{% load crispy_forms_tags %}
+    <form action="" method="POST"  enctype="multipart/form-data">
+{% csrf_token%}
+  {{form | crispy}}
+<button class="btn btn-warning text-white"> Save</button>
+    </form>
+
+        </div>
+        
+    </div>
+    
+</div>
+    
+
+
+{%endblock%}
+{%block simple%}{%endblock%}
+
+    

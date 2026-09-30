@@ -1,0 +1,30 @@
+{% extends  'meetup/main.html'%}
+{% block title%}Login  {%endblock%}
+{% block slider%} {%endblock%}
+{% block simple%} {%endblock%}
+{%block meetup%}
+<section class="containter my-5 ">
+  
+    <div class="row">
+
+        <div class="col-md-4 m-auto">
+              <h2 >Login to your account</h2>
+            <form action="" method="POST">
+        {% csrf_token%}
+        <label for="email" class="form-label"> Email</label>
+        <input type="email" name="email" placeholder="Enter email" class="form-control">
+         <label for="password" class="form-label"> Password</label>
+        <input type="password" name="password" placeholder="Enter password" class="form-control">
+
+        <button type="submit" class="btn btn-warning mt-3">login</button>
+    </form>
+
+    <span class="text-muted">Dont's have an account? <a href="{% url 'register'%}">Register</a></span>
+
+        </div>
+    </div>
+
+</section>
+ 
+
+{%endblock%}

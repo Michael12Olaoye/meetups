@@ -1,0 +1,55 @@
+
+    :root {
+      --brand: #635bff;
+      --brand-dark: #5148e8;
+      --ink: #172033;
+      --muted: #697386;
+      --soft: #f5f7fb;
+    }
+    body { color: var(--ink); background: #fff; }
+    .navbar { background: rgba(255,255,255,.95); backdrop-filter: blur(10px); }
+    .navbar-brand { font-weight: 800; letter-spacing: -.5px; }
+    .brand-dot { color: var(--brand); }
+    .hero {
+      background: linear-gradient(135deg, #f3f1ff 0%, #eef7ff 100%);
+      padding: 90px 0 75px;
+    }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -2px; }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 650px; }
+    .btn-brand { background: var(--brand); color: #fff; border: 0; }
+    .btn-brand:hover { background: var(--brand-dark); color: #fff; }
+    .search-box { margin-top: -28px; position: relative; z-index: 2; }
+    .search-card { border: 0; border-radius: 18px; box-shadow: 0 15px 45px rgba(31, 41, 55, .12); }
+    .section-title { font-weight: 800; letter-spacing: -.7px; }
+    .event-card {
+      border: 1px solid #e9ecf2;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .2s ease;
+      height: 100%;
+    }
+    .event-card:hover { transform: translateY(-4px); box-shadow: 0 14px 35px rgba(31,41,55,.1); }
+    .event-img { height: 170px; object-fit: cover; }
+    .date-badge {
+      width: 50px; height: 58px; border-radius: 12px;
+      background: #f0efff; color: var(--brand);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-weight: 800; line-height: 1.05;
+    }
+    .date-badge small { font-size: .68rem; }
+    .avatar-stack img {
+      width: 30px; height: 30px; border-radius: 50%; object-fit: cover;
+      border: 2px solid #fff; margin-left: -8px;
+    }
+    .category-pill { cursor: pointer; }
+    .feature-icon {
+      width: 48px; height: 48px; display: grid; place-items: center;
+      border-radius: 13px; background: #f0efff; color: var(--brand); font-size: 1.3rem;
+    }
+    .create-section { background: var(--soft); }
+    .cta {
+      background: #181c2b; color: white; border-radius: 24px;
+    }
+    footer { background: #111522; color: #aab1c3; }
+    footer a { color: #aab1c3; text-decoration: none; }
+    footer a:hover { color: #fff; }

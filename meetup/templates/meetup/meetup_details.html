@@ -1,0 +1,37 @@
+{% extends  'meetup/main.html'%}
+{% load crispy_forms_tags %}
+{%block title%}Meetup details{%endblock%}
+{%block slider%}{%endblock%}
+{%block meetup%}
+<div class="container">
+    <h1 class="my-3">{{meetup.title}}</h1>
+    <div class="row">
+        <div class="col-md-8">
+
+    <img src="{{ meetup.image.url }}" alt="{{meetup.image}}" class="img-fluid rounded">
+    <h2 class="my-2">Description: {{meetup.description}}</h2>
+
+        </div>
+        <div class="col-md-4">
+<h2>Join Us</h2>
+    <form action="" method="POST">
+                {% csrf_token %}
+                {{form |crispy}}
+    <button class="btn btn-primary">Join Us</button>
+    </form>
+    <h3>Speakers</h3>
+    {% for speaker in speakers%}
+    <p>{{speaker.name}}</p>
+
+    {% endfor %}
+        </div>
+    </div>
+    
+</div>
+    
+
+
+{%endblock%}
+{%block simple%}{%endblock%}
+
+    

@@ -1,0 +1,58 @@
+{% extends  'meetup/main.html'%}
+{% block title%}Participant {%endblock%}
+{% block slider%} {%endblock%}
+{% block simple%} {%endblock%}
+{%block meetup%}
+
+
+<section class="containter my-5 ">
+  
+    <div class="row">
+
+        <div class="col-md-10 m-auto">
+<!--     
+                 <form action="{% url 'user-meetups' request.user.id%}" method="GET">
+        {% csrf_token %}
+                <div class="input-group">
+                      <input type="search" name="q" class="form-control">
+        <button class="btn btn-primary">search</button>
+                </div>
+     
+    </form> -->
+
+<!-- <a class="btn btn-warning my-2" href="{% url 'user-meetups' request.user.id %}">Reset</a> -->
+
+ 
+              <h2 >Meetup Participant</h2>
+      <table class="table">
+    <tr>
+        <th>#</th>
+       
+        <th>name</th>
+        <th>email</th>
+       
+     
+    </tr>
+    {% for p in participants %}
+    <tr>
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td><a href="mailto:{{p.email}}">{{p.email}}</a></td>
+       
+       
+    </tr>
+
+     {% endfor %}
+
+</table>
+<span>No of meetups: {{count}}</span>
+
+        </div>
+    </div>
+
+</section>
+ 
+
+{%endblock%}
+
+

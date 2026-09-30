@@ -1,0 +1,67 @@
+{% extends  'meetup/main.html'%}
+{% block title%}Speaker {%endblock%}
+{% block slider%} {%endblock%}
+{% block simple%} {%endblock%}
+{%block meetup%}
+
+
+<section class="containter my-5 ">
+  
+    <div class="row">
+
+        <div class="col-md-10 m-auto">
+<!--     
+                 <form action="{% url 'user-meetups' request.user.id%}" method="GET">
+        {% csrf_token %}
+                <div class="input-group">
+                      <input type="search" name="q" class="form-control">
+        <button class="btn btn-primary">search</button>
+                </div>
+     
+    </form> -->
+
+<!-- <a class="btn btn-warning my-2" href="{% url 'user-meetups' request.user.id %}">Reset</a> -->
+
+ 
+              <h2 >Meetup Speaker</h2>
+      <table class="table">
+    <tr>
+        <th>#</th>
+       
+        <th>name</th>
+      
+        <th>phone</th>
+        <th>Meetup name</th>
+          <th>email</th>
+             <th>View</th>
+             <th>Delete</th>
+       
+     
+    </tr>
+    {% for s in speakers %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.phone}}</td>
+        <td>{{s.meetup_name}}</td>
+        <td><a href="mailto:{{s.email}}">{{s.email}}</a></td>
+         <td><a href="{% url 'speaker-update' s.id%}">View</a></td>
+        <td><a href="{% url 'speaker-delete' s.id%}">Delete</a></td>
+       
+       
+    </tr>
+
+     {% endfor %}
+
+</table>
+<span>No of speakers: {{count}}</span>
+
+        </div>
+    </div>
+
+</section>
+ 
+
+{%endblock%}
+
+

@@ -1,0 +1,67 @@
+{% extends  'meetup/main.html'%}
+{% block title%}My meetups {%endblock%}
+{% block slider%} {%endblock%}
+{% block simple%} {%endblock%}
+{%block meetup%}
+
+
+<section class="containter my-5 ">
+  
+    <div class="row">
+
+        <div class="col-md-10 m-auto">
+    
+                 <form action="{% url 'user-meetups' request.user.id%}" method="GET">
+        {% csrf_token %}
+                <div class="input-group">
+                      <input type="search" name="q" class="form-control">
+        <button class="btn btn-primary">search</button>
+                </div>
+     
+    </form>
+
+<a class="btn btn-warning my-2" href="{% url 'user-meetups' request.user.id %}">Reset</a>
+
+ 
+              <h2 >My meetups</h2>
+      <table class="table">
+    <tr>
+        <th>#</th>
+        <th>Organizer name</th>
+        <th>title</th>
+        <th>email</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Participants</th>
+         <th>Add Speaker</th>
+        <th>View Speaker</th>
+    </tr>
+    {% for meetup in meetups %}
+    <tr>
+        <td>{{meetup.id}}</td>
+        <td>{{meetup.user.name}}</td>
+        <td>{{meetup.title}}</td>
+        <td>{{meetup.organizer_email}}</td>
+        <td><a class="btn btn-secondary" href="{% url 'meetup-details' meetup.slug%}">View</a></td>
+        <td><a class="btn btn-secondary"  href="{% url 'meetup-update' meetup.id%}">Edit</a></td>
+         <td><a  class="btn btn-secondary"  href="{% url 'meetup-delete' meetup.id%}">Delete</a></td>
+         <td><a class="btn btn-secondary"  href="{% url 'meetup-participants' meetup.id%}">Participants</a></td>
+            <td><a  class="btn btn-secondary"  href="{% url 'add-speaker' meetup.slug%}">Add</a></td>
+         <td><a  class="btn btn-secondary"  href="{% url 'meetup-speakers' meetup.id%}">View</a></td>
+    </tr>
+
+     {% endfor %}
+
+</table>
+<span>No of meetups: {{count}}</span>
+
+        </div>
+    </div>
+
+</section>
+ 
+
+{%endblock%}
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>{{meetup.title}}</h1>
+    <img src="{{ meetup.image.url }}" alt="{{meetup.image}}"  width="400">
+    <h2>Description: {{meetup.description}}</h2>
+
+    <h2>Join Us</h2>
+    <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+    <button>Join Us</button>
+    </form>
+    <h3>Speakers</h3>
+    {% for speaker in speakers%}
+    <p>{{speaker.name}}</p>
+
+    {% endfor %}
+    
+</body>
+</html>
